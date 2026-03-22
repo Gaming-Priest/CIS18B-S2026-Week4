@@ -1,8 +1,12 @@
 package edu.norcocollege.cis18b.weekx.mini08;
 
-public class EmailAlertObserver implements AlertObserver {
+public class EmailNotificationObserver implements AlertObserver 
+{
     @Override
-    public void onAlert(Alert alert) {
-        // TODO: Print an email notification message.
+    public void onAlert(Alert alert) 
+    {
+        System.out.println("[EMAIL] Sending notification for alert: " 
+            + alert.getMessage() 
+            + " (Severity: " + alert.getSeverity() + ")");
     }
 }
