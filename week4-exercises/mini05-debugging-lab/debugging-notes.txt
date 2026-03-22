@@ -1,1 +1,19 @@
-TODO: Replace this text with your debugging notes.
+What the bug was:
+The for loop used the condition i <= alerts.length instead of i < alerts.length.
+This caused the loop to try to access alerts[3] when the array only has valid indices 0, 1, and 2.
+This resulted in an ArrayIndexOutOfBoundsException.
+
+How I found it:
+I set a breakpoint on the println line inside the loop.
+I ran the program in debug mode 
+I stepped through each iteration (F10) while watching the value of i and alerts.length in the Variables panel.
+On the fourth iteration, i became 3, which is equal to alerts.length.
+When the code tried to access alerts[3], the debugger paused and showed the exception.
+
+What change fixed it:
+I changed the loop condition from:
+    i <= alerts.length
+to:
+    i < alerts.length
+
+This ensures i only goes from 0 to 2, which are the valid indices.
