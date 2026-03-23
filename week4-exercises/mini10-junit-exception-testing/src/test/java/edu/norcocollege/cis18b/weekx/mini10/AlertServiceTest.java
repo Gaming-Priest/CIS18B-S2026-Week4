@@ -5,23 +5,24 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class AlertServiceTest {
+public class AlertServiceTest 
+{
     @Test
-    void shouldStoreSuccessfullyProcessedAlert() throws Exception {
+    void shouldStoreSuccessfullyProcessedAlert() throws Exception 
+    {
         AlertService service = new AlertService(new InMemoryAlertRepository());
         Alert alert = new Alert(1, "Unauthorized login attempt", AlertLevel.CRITICAL);
 
-        // TODO: Process the alert.
-        // TODO: Assert that one alert was stored.
-        assertEquals(1, 0);
+        service.processAlert(alert);
+        assertEquals(1, service.getAlertCount());
     }
 
     @Test
-    void shouldThrowWhenRepositoryFails() {
+    void shouldThrowWhenRepositoryFails() 
+    {
         AlertService service = new AlertService(new AlwaysFailRepository());
         Alert alert = new Alert(2, "Disk failure", AlertLevel.CRITICAL);
 
-        // TODO: Replace null with a lambda that calls processAlert(alert).
-        assertThrows(AlertStorageException.class, null);
+        assertThrows(AlertStorageException.class, () -> service.processAlert(alert));
     }
 }
