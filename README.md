@@ -611,3 +611,12 @@ Answer the following:
 2. When should you create a custom exception?
 3. Why is exception translation useful in layered systems?
 4. How can the Observer pattern improve error reporting?
+
+
+1. Checked Exceptions are erros that must be handled or declared at compile time. Unchecked exceptions occur at runtime and do not haveto be handled explicitly.
+
+2.You should create a custom exception when you need to represent a specific type of error that is meaningful to your application.
+
+3.Exception translation is useful because it allows you to convert low-level exceptions into higher-level, more meaningful ones.
+
+4.The Observer pattern improves error reporting by allowing multiple components to be notified when an error occurs.
